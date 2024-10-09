@@ -17,7 +17,6 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Resp<String> login(String userId, String password) {
-        int a = 100 / 0;
         // 通过账号去数据库中查询对应用户信息
         LambdaQueryWrapper<Admin> queryWrapper = new LambdaQueryWrapper<>();
         Admin admin = adminMapper.selectOne(queryWrapper
