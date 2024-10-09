@@ -26,9 +26,16 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <spring-boot.version>3.0.1</spring-boot.version>
         <spring-cloud-alibaba.version>2022.0.0.0-RC2</spring-cloud-alibaba.version>
         <spring-cloud.version>2022.0.0</spring-cloud.version>
+        <mybatis-plus.version>3.5.5</mybatis-plus.version>
+        <swagger.version>2.2.0</swagger.version>
+        <common-mybatis.version>1.0-SNAPSHOT</common-mybatis.version>
+        <common-core.version>1.0-SNAPSHOT</common-core.version>
+        <common-swagger.version>1.0-SNAPSHOT</common-swagger.version>
+        <common-security.version>1.0-SNAPSHOT</common-security.version>
     </properties>
 
     <dependencies>
@@ -36,6 +43,12 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>annotationProcessor</scope>
         </dependency>
     </dependencies>
 
