@@ -36,6 +36,8 @@
         <common-core.version>1.0-SNAPSHOT</common-core.version>
         <common-swagger.version>1.0-SNAPSHOT</common-swagger.version>
         <common-security.version>1.0-SNAPSHOT</common-security.version>
+        <common-redis.version>1.0-SNAPSHOT</common-redis.version>
+        <fastjson2.version>2.0.43</fastjson2.version>
     </properties>
 
     <dependencies>

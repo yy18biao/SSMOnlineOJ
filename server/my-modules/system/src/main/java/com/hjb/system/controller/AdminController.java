@@ -1,6 +1,7 @@
 package com.hjb.system.controller;
 
 import com.hjb.core.domain.Resp;
+import com.hjb.redis.service.RedisService;
 import com.hjb.system.domain.AdminDTO;
 import com.hjb.system.domain.AdminSaveDTO;
 import com.hjb.system.domain.AdminVO;
@@ -22,6 +23,9 @@ import org.springframework.web.bind.annotation.*;
 public class AdminController {
     @Resource
     private AdminServiceImpl adminServiceImpl;
+
+    @Resource
+    private RedisService redisService;
 
     @PostMapping("/login")
     @Operation(summary = "管理员登录验证接口")
