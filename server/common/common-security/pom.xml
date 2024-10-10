@@ -27,6 +27,11 @@
             <artifactId>common-core</artifactId>
             <version>${common-core.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.hjb</groupId>
+            <artifactId>common-redis</artifactId>
+            <version>${common-redis.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

@@ -33,6 +33,11 @@ public class RedisService {
         return expire(key, timeout, unit);
     }
 
+    // 获取剩余有效时间
+    public Long getExpire(final String key, final TimeUnit unit) {
+        return redisTemplate.getExpire(key, unit);
+    }
+
     // 删除一个对象
     public boolean delete(final String key) {
         return redisTemplate.delete(key);

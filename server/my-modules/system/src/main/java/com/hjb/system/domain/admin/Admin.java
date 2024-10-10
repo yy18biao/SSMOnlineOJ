@@ -1,4 +1,4 @@
-package com.hjb.system.domain;
+package com.hjb.system.domain.admin;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

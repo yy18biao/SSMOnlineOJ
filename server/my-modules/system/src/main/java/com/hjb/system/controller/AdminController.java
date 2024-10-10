@@ -1,10 +1,9 @@
 package com.hjb.system.controller;
 
 import com.hjb.core.domain.Resp;
-import com.hjb.redis.service.RedisService;
-import com.hjb.system.domain.AdminDTO;
-import com.hjb.system.domain.AdminSaveDTO;
-import com.hjb.system.domain.AdminVO;
+import com.hjb.system.domain.admin.DTO.AdminDTO;
+import com.hjb.system.domain.admin.DTO.AdminAddDTO;
+import com.hjb.system.domain.admin.VO.AdminVO;
 import com.hjb.system.service.impl.AdminServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -24,9 +23,6 @@ public class AdminController {
     @Resource
     private AdminServiceImpl adminServiceImpl;
 
-    @Resource
-    private RedisService redisService;
-
     @PostMapping("/login")
     @Operation(summary = "管理员登录验证接口")
     @ApiResponse(responseCode = "200", description = "登录成功")
@@ -34,17 +30,15 @@ public class AdminController {
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
     @ApiResponse(responseCode = "2102", description = "账号/密码错误")
     public Resp<String> login(@RequestBody AdminDTO adminDTO) {
-        Resp<String> resp = new Resp<>();
-        resp = adminServiceImpl.login(adminDTO.getUserId(), adminDTO.getPassword());
-        return resp;
+        return adminServiceImpl.login(adminDTO.getUserId(), adminDTO.getPassword());
     }
 
-    @PostMapping("add")
+    @PostMapping("/add")
     @Operation(summary = "新增管理员接口")
     @ApiResponse(responseCode = "200", description = "新增成功")
     @ApiResponse(responseCode = "2100", description = "用户已存在")
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
-    public Resp<String> add(@RequestBody AdminSaveDTO adminSaveDTO) {
+    public Resp<String> add(@RequestBody AdminAddDTO adminAddDTO) {
         return null;
     }
 
@@ -54,7 +48,7 @@ public class AdminController {
     @ApiResponse(responseCode = "200", description = "删除成功")
     @ApiResponse(responseCode = "2101", description = "用户不存在")
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
-    public Resp<String> delete(@PathVariable Long userId) {
+    public Resp<String> delete(@PathVariable String userId) {
         return null;
     }
 
@@ -66,7 +60,7 @@ public class AdminController {
     @ApiResponse(responseCode = "200", description = "获取成功")
     @ApiResponse(responseCode = "2101", description = "用户不存在")
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
-    public Resp<AdminVO> getAdmin(@RequestParam(required = true) Long userId) {
+    public Resp<AdminVO> getAdmin(@RequestParam(required = true) String userId) {
         return null;
     }
 }

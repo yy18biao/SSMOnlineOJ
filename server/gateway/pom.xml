@@ -41,6 +41,17 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.hjb</groupId>
+            <artifactId>common-core</artifactId>
+            <version>${common-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hjb</groupId>
+            <artifactId>common-redis</artifactId>
+            <version>${common-redis.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

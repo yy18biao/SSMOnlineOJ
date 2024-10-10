@@ -1,4 +1,4 @@
-package com.hjb.security;
+package com.hjb.security.handler;
 
 import com.hjb.core.domain.Resp;
 import com.hjb.core.enums.ResCode;

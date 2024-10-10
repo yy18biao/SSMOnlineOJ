@@ -1,7 +1,7 @@
 package com.hjb.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hjb.system.domain.Admin;
+import com.hjb.system.domain.admin.Admin;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
