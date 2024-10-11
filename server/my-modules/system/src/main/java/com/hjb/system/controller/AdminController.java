@@ -5,11 +5,9 @@ import com.hjb.core.domain.Resp;
 import com.hjb.core.domain.vo.LoginUserVO;
 import com.hjb.system.domain.admin.DTO.AdminDTO;
 import com.hjb.system.domain.admin.DTO.AdminAddDTO;
-import com.hjb.system.domain.admin.VO.AdminVO;
-import com.hjb.system.service.impl.AdminServiceImpl;
+import com.hjb.system.service.AdminService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
-import io.swagger.v3.oas.annotations.Parameters;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -23,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "管理员相关接口")
 public class AdminController {
     @Resource
-    private AdminServiceImpl adminServiceImpl;
+    private AdminService adminService;
 
     @PostMapping("/login")
     @Operation(summary = "管理员登录验证接口")
@@ -32,7 +30,7 @@ public class AdminController {
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
     @ApiResponse(responseCode = "2102", description = "账号/密码错误")
     public Resp<String> login(@RequestBody AdminDTO adminDTO) {
-        return adminServiceImpl.login(adminDTO.getUserId(), adminDTO.getPassword());
+        return adminService.login(adminDTO.getUserId(), adminDTO.getPassword());
     }
 
     @PostMapping("/add")
@@ -41,7 +39,7 @@ public class AdminController {
     @ApiResponse(responseCode = "2100", description = "用户已存在")
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
     public Resp<Void> add(@RequestBody AdminAddDTO adminAddDTO) {
-        return adminServiceImpl.add(adminAddDTO) > 0 ? Resp.ok() : Resp.fail();
+        return adminService.add(adminAddDTO) > 0 ? Resp.ok() : Resp.fail();
     }
 
     @GetMapping("/getAdmin")
@@ -51,7 +49,7 @@ public class AdminController {
     @ApiResponse(responseCode = "2101", description = "用户不存在")
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
     public Resp<LoginUserVO> getAdmin(@RequestHeader(HttpConstants.AUTHENTICATION) String token) {
-        return adminServiceImpl.getAdmin(token);
+        return adminService.getAdmin(token);
     }
 
     @DeleteMapping("/logout")
@@ -60,6 +58,6 @@ public class AdminController {
     @ApiResponse(responseCode = "200", description = "退出成功")
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
     public Resp<Void> logout(@RequestHeader(HttpConstants.AUTHENTICATION) String token) {
-        return adminServiceImpl.logout(token) ? Resp.ok() : Resp.fail();
+        return adminService.logout(token) ? Resp.ok() : Resp.fail();
     }
 }

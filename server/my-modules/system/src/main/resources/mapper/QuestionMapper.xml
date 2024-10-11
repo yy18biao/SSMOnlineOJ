@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hjb.system.mapper.QuestionMapper">
+
+    <select id="selectQuestionList" resultType="com.hjb.system.domain.question.VO.QuestionVO">
+        SELECT tq.id, tq.title, tq.difficulty, ta.nickname as createName, tq.createTime
+        FROM question tq left join admin ta on tq.createBy = ta.userId
+        <where>
+            <if test="difficulty !=null ">
+                AND difficulty = #{difficulty}
+            </if>
+            <if test="title !=null and title !='' ">
+                AND title LIKE CONCAT('%',#{title},'%')
+            </if>
+            <if test="excludeIdSet !=null and !excludeIdSet.isEmpty()">
+                <foreach collection="excludeIdSet" open=" AND tq.id NOT IN( " close=" ) " item="id" separator=",">
+                    #{id}
+                </foreach>
+            </if>
+        </where>
+        ORDER BY createTime DESC
+    </select>
+</mapper>
