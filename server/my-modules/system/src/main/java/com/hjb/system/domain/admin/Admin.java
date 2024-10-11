@@ -3,7 +3,7 @@ package com.hjb.system.domain.admin;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.hjb.domain.BaseEntity;
+import com.hjb.core.domain.BaseEntity;
 import lombok.Data;
 
 @Data

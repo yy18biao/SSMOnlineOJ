@@ -38,18 +38,8 @@ public class AdminController {
     @ApiResponse(responseCode = "200", description = "新增成功")
     @ApiResponse(responseCode = "2100", description = "用户已存在")
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
-    public Resp<String> add(@RequestBody AdminAddDTO adminAddDTO) {
-        return null;
-    }
-
-    @DeleteMapping("/delete/{userId}")
-    @Operation(summary = "删除管理员接口")
-    @Parameter(name = "userId", in = ParameterIn.PATH, description = "管理员账号")
-    @ApiResponse(responseCode = "200", description = "删除成功")
-    @ApiResponse(responseCode = "2101", description = "用户不存在")
-    @ApiResponse(responseCode = "2000", description = "服务器繁忙")
-    public Resp<String> delete(@PathVariable String userId) {
-        return null;
+    public Resp<Void> add(@RequestBody AdminAddDTO adminAddDTO) {
+        return adminServiceImpl.add(adminAddDTO) > 0 ? Resp.ok() : Resp.fail();
     }
 
     @GetMapping("/getAdmin")
