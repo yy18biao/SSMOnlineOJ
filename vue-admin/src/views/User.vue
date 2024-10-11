@@ -1,0 +1,60 @@
+<template>
+    <!-- 顶部搜索表单 -->
+    <el-form inline="true">
+        <el-form-item label="用户id">
+            <el-input placeholder="请您输入要搜索的用户id" />
+        </el-form-item>
+        <el-form-item label="用户昵称">
+            <el-input placeholder="请您输入要搜索的用户昵称" />
+        </el-form-item>
+        <el-form-item>
+            <el-button @click="onSearch" plain>搜索</el-button>
+            <el-button @click="onReset" plain type="info">重置</el-button>
+        </el-form-item>
+    </el-form>
+
+    <!-- 主内容显示表格区 -->
+    <el-table height="526px" :data="userList">
+        <el-table-column prop="id" label="用户id" width="180px" />
+        <el-table-column prop="userId" label="用户账号" />
+        <el-table-column prop="nickName" width="150px" label="昵称" />
+        <el-table-column prop="sex" width="60px" label="性别">
+            <template #default="{ row }">
+                <div v-if="row.sex === 1" style="color:#3EC8FF;">男</div>
+                <div v-if="row.sex === 2" style="color:#FD4C40;">女</div>
+            </template>
+        </el-table-column>
+        <el-table-column prop="phone" width="150px" label="手机号" />
+        <el-table-column prop="email" width="150px" label="邮箱" />
+        <el-table-column prop="wechat" width="150px" label="微信号" />
+        <el-table-column label="学校/专业" width="150px">
+            <template #default="{ row }">
+                <span class="block-span"> 学校: {{ row.schoolName }}</span>
+                <span class="block-span"> 专业: {{ row.majorName }}</span>
+            </template>
+        </el-table-column>
+        <el-table-column prop="introduce" width="400px" label="个人介绍" />
+        <el-table-column prop="status" width="90px" label="用户状态">
+            <template #default="{ row }">
+                <el-tag type="success" v-if="row.status">正常</el-tag>
+                <el-tag type="error" v-else>拉黑</el-tag>
+            </template>
+        </el-table-column>
+        <el-table-column label="操作" width="80px" fixed="right">
+            <template #default="{ row }">
+                <el-button class="red" v-if="row.status === 1" type="text" plain
+                    @click="onUpdateUserStatus(row.userId, 0)">拉黑</el-button>
+                <el-button v-if="row.status === 0" type="text" plain
+                    @click="onUpdateUserStatus(row.userId, 1)">解禁</el-button>
+            </template>
+        </el-table-column>
+    </el-table>
+
+    <!-- 底部分页区 -->
+    
+</template>
+
+
+<script setup>
+
+</script>

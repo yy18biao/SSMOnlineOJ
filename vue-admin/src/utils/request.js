@@ -1,5 +1,6 @@
 import axios from "axios"
-import { getToken } from "./cookie";
+import { getToken, removeToken} from "./cookie";
+import router from "@/router";
 
 // 设置请求的格式
 axios.defaults.headers["Content-Type"] = "application/json;charset=utf-8";

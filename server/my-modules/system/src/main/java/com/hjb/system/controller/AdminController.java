@@ -1,6 +1,8 @@
 package com.hjb.system.controller;
 
+import com.hjb.core.constants.HttpConstants;
 import com.hjb.core.domain.Resp;
+import com.hjb.core.domain.vo.LoginUserVO;
 import com.hjb.system.domain.admin.DTO.AdminDTO;
 import com.hjb.system.domain.admin.DTO.AdminAddDTO;
 import com.hjb.system.domain.admin.VO.AdminVO;
@@ -44,13 +46,20 @@ public class AdminController {
 
     @GetMapping("/getAdmin")
     @Operation(summary = "获取管理员信息接口")
-    @Parameters(value = {
-            @Parameter(name = "userId", in = ParameterIn.QUERY, description = "管理员账号")
-    })
+    @Parameter(name = "token", in = ParameterIn.COOKIE, description = "token")
     @ApiResponse(responseCode = "200", description = "获取成功")
     @ApiResponse(responseCode = "2101", description = "用户不存在")
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
-    public Resp<AdminVO> getAdmin(@RequestParam(required = true) String userId) {
-        return null;
+    public Resp<LoginUserVO> getAdmin(@RequestHeader(HttpConstants.AUTHENTICATION) String token) {
+        return adminServiceImpl.getAdmin(token);
+    }
+
+    @DeleteMapping("/logout")
+    @Operation(summary = "退出管理员登录")
+    @Parameter(name = "token", in = ParameterIn.COOKIE, description = "token")
+    @ApiResponse(responseCode = "200", description = "退出成功")
+    @ApiResponse(responseCode = "2000", description = "服务器繁忙")
+    public Resp<Void> logout(@RequestHeader(HttpConstants.AUTHENTICATION) String token) {
+        return adminServiceImpl.logout(token) ? Resp.ok() : Resp.fail();
     }
 }

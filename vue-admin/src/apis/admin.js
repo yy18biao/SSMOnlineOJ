@@ -10,3 +10,17 @@ export function loginServeice(userId, password) {
         data: { userId, password },
     });
 }
+
+export function getAdminService() {
+    return request({
+        url: "/admin/getAdmin",
+        method: "get",
+    });
+}
+
+export function logoutService() {
+    return request({
+        url: "/admin/logout",
+        method: "delete",
+    });
+}

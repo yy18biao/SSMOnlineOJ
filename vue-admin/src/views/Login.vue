@@ -37,8 +37,8 @@ async function loginFun() {
     try {
         // 发起请求
         const res = await loginServeice(userId.value, password.value)
-        router.push("/admin/system") // 路由
-        setToken(res.data.data) // 设置token
+        router.push("/admin/user") // 路由
+        setToken(res.data) // 设置token
     } catch (error) {
         console.log("error:", error)
     }
@@ -48,7 +48,6 @@ async function loginFun() {
 
 
 <style lang="scss" scoped>
-
 .login-main {
     width: 100vw;
     height: 100vh;
