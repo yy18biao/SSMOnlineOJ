@@ -17,7 +17,15 @@ public enum ResCode {
     FAILED_PARAMS_VALIDATE(3001, "参数校验失败"),
 
     FAILED_QUESTION_EXISTS(3100, "题目已存在"),
-    FAILED_QUESTION_NOT_EXISTS(3101, "题目不存在");
+    FAILED_QUESTION_NOT_EXISTS(3101, "题目不存在"),
+
+    FAILED_EXAM_EXISTS(3200, "竞赛已存在"),
+    FAILED_EXAM_NOT_EXISTS(3201, "竞赛不存在"),
+    EXAM_START_TIME_BEFORE_CURRENT_TIME(3202, "竞赛的开始时间不能早于当前时间"),
+    EXAM_START_TIME_AFTER_END_TIME(3203, "竞赛的结束时间不能早于开始时间"),
+    EXAM_STARTED(3204, "竞赛已开始"),
+    EXAM_IS_PUBLISH(3205, "竞赛处于发布状态"),
+    EXAM_QUESTION_NOT_EXISTS(3206, "竞赛题目不存在");
 
     private int code;
     private String msg;

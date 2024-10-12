@@ -18,10 +18,12 @@ const options = {
   minLines: 10,
   fontSize: 15,
 };
+
 // 创建响应式引用
 let editor = null;
 const emit = defineEmits(['update:value']);
 const editorform = ref(null);
+
 // 初始化编辑器
 onMounted(() => {
   editor = ace.edit(editorform.value, options);
