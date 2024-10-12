@@ -14,7 +14,10 @@ public enum ResCode {
     FAILED_LOGIN(2102, "账号/密码错误"),
 
     FAILED_UNAUTHORIZED(3000, "未授权"),
-    FAILED_PARAMS_VALIDATE(3001, "参数校验失败");
+    FAILED_PARAMS_VALIDATE(3001, "参数校验失败"),
+
+    FAILED_QUESTION_EXISTS(3100, "题目已存在"),
+    FAILED_QUESTION_NOT_EXISTS(3101, "题目不存在");
 
     private int code;
     private String msg;

@@ -9,8 +9,10 @@
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/modules/pom.xml" />
-        <option value="$PROJECT_DIR$/modules/system/pom.xml" />
+        <option value="$PROJECT_DIR$/my-modules/friend/pom.xml" />
+        <option value="$PROJECT_DIR$/my-modules/job/pom.xml" />
+        <option value="$PROJECT_DIR$/my-modules/judge/pom.xml" />
+        <option value="$PROJECT_DIR$/my-modules/system/pom.xml" />
       </set>
     </option>
   </component>

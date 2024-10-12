@@ -1,6 +1,0 @@
-server:
-  port: 9004
-
-spring:
-  application:
-    name: judge
