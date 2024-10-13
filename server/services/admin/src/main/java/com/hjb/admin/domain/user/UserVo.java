@@ -1,13 +1,31 @@
 package com.hjb.admin.domain.user;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import lombok.Data;
 
 @Data
 public class UserVo {
-    @Schema(description = "管理员账号")
+    @JsonSerialize(using = ToStringSerializer.class)
+    private Long id;
+
     private String userId;
 
-    @Schema(description = "管理员昵称")
-    private String nickname;
+    private String nickName;
+
+    private Integer sex;
+
+    private String phone;
+
+    private String email;
+
+    private String wechat;
+
+    private String schoolName;
+
+    private String majorName;
+
+    private String introduce;
+
+    private Integer status;
 }

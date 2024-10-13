@@ -16,11 +16,11 @@ export function addQuestionService(params = {}) {
     });
 }
 
-export function searchQuestionService(id) {
+export function searchQuestionService(questionId) {
     return service({
         url: "/question/search",
         method: "get",
-        params: { id },
+        params: { questionId },
     });
 }
 
@@ -32,10 +32,10 @@ export function updateQuestionService(params = {}) {
     });
 }
 
-export function delQuestionService(id) {
+export function delQuestionService(questionId) {
     return service({
         url: "/question/delete",
         method: "delete",
-        params: { id },
+        params: { questionId },
     });
 }

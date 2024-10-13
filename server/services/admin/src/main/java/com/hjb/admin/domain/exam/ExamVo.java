@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Data
 public class ExamVo {
     @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
+    private Long examId;
 
     private String title;
 
@@ -19,6 +19,9 @@ public class ExamVo {
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime endTime;
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime createTime;
 
     private Integer status;
 

@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class QuestionUpdateDto {
     @NotNull(message = "id不能为null")
-    private Long id;
+    private Long questionId;
 
     @NotNull(message = "标题不能为null")
     private String title;

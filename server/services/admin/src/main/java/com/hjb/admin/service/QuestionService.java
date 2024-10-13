@@ -39,8 +39,8 @@ public class QuestionService {
     }
 
     // 查看
-    public QuestionSearchVo search(Long id){
-        Question question = questionMapper.selectById(id);
+    public QuestionSearchVo search(Long questionId){
+        Question question = questionMapper.selectById(questionId);
         if(question == null){
             throw new ServiceException(ResCode.FAILED_QUESTION_NOT_EXISTS);
         }
@@ -50,7 +50,7 @@ public class QuestionService {
 
     // 修改
     public int update(QuestionUpdateDto questionUpdateDto) {
-        Question question = questionMapper.selectById(questionUpdateDto.getId());
+        Question question = questionMapper.selectById(questionUpdateDto.getQuestionId());
         if(question == null){
             throw new ServiceException(ResCode.FAILED_QUESTION_NOT_EXISTS);
         }
@@ -67,7 +67,7 @@ public class QuestionService {
     }
 
     // 删除
-    public int delete(Long id){
-        return questionMapper.deleteById(id);
+    public int delete(Long questionId){
+        return questionMapper.deleteById(questionId);
     }
 }

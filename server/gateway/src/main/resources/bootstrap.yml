@@ -6,9 +6,9 @@ spring:
   cloud:
     nacos:
       discovery:
-        namespace: 8806307d-ce75-4840-ae0e-e58431191d04
-        server-addr: http://8.138.155.248:8848
+        namespace: 5626b519-3fa6-4912-9100-040726af3209
+        server-addr: http://127.0.0.1:8848
       config:
-        namespace: 8806307d-ce75-4840-ae0e-e58431191d04
-        server-addr: http://8.138.155.248:8848
+        namespace: 5626b519-3fa6-4912-9100-040726af3209
+        server-addr: http://127.0.0.1:8848
         file-extension: yaml

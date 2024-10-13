@@ -42,8 +42,8 @@ public class QuestionController extends BaseController {
     @Operation(summary = "获取题目详情")
     @ApiResponse(responseCode = "200", description = "获取成功")
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
-    public Resp<QuestionSearchVo> search(Long id){
-        return Resp.ok(questionService.search(id));
+    public Resp<QuestionSearchVo> search(Long questionId){
+        return Resp.ok(questionService.search(questionId));
     }
 
     @PutMapping("/update")
@@ -58,7 +58,7 @@ public class QuestionController extends BaseController {
     @Operation(summary = "删除题目")
     @ApiResponse(responseCode = "200", description = "获取成功")
     @ApiResponse(responseCode = "2000", description = "服务器繁忙")
-    public Resp<Void> delete(Long id){
-        return questionService.delete(id) > 0 ? Resp.ok() : Resp.fail();
+    public Resp<Void> delete(Long questionId){
+        return questionService.delete(questionId) > 0 ? Resp.ok() : Resp.fail();
     }
 }

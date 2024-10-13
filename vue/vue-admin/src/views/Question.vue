@@ -13,8 +13,8 @@
     </el-form-item>
   </el-form>
 
-  <el-table height="526px" :data="questionList">
-    <el-table-column prop="id" width="180px" label="题目id"/>
+  <el-table height="650px" :data="questionList">
+    <el-table-column prop="questionId" width="180px" label="题目id"/>
     <el-table-column prop="title" label="题目标题"/>
     <el-table-column prop="difficulty" label="题目难度" width="100px">
       <template #default="{ row }">

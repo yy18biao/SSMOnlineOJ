@@ -6,7 +6,7 @@
 <mapper namespace="com.hjb.admin.mapper.ExamMapper">
 
     <select id="list" resultType="com.hjb.admin.domain.exam.ExamVo">
-        SELECT te.id, te.title, te.startTime, te.endTime, te.createTime, ts.nickname as createName, te.status
+        SELECT te.examId, te.title, te.startTime, te.endTime, te.createTime, ts.nickname as createName, te.status
         FROM exam te left join admin ts on te.createBy = ts.userId
         <where>
             <if test="title !=null and title !='' ">

@@ -8,27 +8,27 @@ export function getExamListService(params) {
     });
 }
 
-export function delExamService(id) {
+export function delExamService(examId) {
     return service({
         url: "/exam/delete",
         method: "delete",
-        params: { id },
+        params: { examId },
     });
 }
 
-export function publishExamService(id) {
+export function publishExamService(examId) {
     return service({
-        url: "/exam/publish",
+        url: "/exam/publishExam",
         method: "put",
-        params: { id },
+        params: { examId },
     });
 }
 
-export function cancelPublishExamService(id) {
+export function cancelPublishExamService(examId) {
     return service({
-        url: "/exam/cancel",
+        url: "/exam/cancelExam",
         method: "put",
-        params: { id },
+        params: { examId },
     });
 }
 
@@ -48,26 +48,26 @@ export function addExamQuestionService(params = {}) {
     });
 }
 
-export function searchExamService(id) {
+export function searchExamService(examId) {
     return service({
-        url: "/exam/cancel",
-        method: "put",
-        params: { id },
+        url: "/exam/search",
+        method: "get",
+        params: { examId },
     });
 }
 
-export function updateExamService(id) {
+export function updateExamService(examId) {
     return service({
         url: "/exam/cancel",
         method: "put",
-        params: { id },
+        params: { examId },
     });
 }
 
-export function delExamQuestionService(id) {
+export function delExamQuestionService(examId, questionId) {
     return service({
-        url: "/exam/cancel",
-        method: "put",
-        params: { id },
+        url: "/exam/deleteQuestion",
+        method: "delete",
+        params: { examId, questionId },
     });
 }

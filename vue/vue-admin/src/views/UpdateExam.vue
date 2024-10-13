@@ -40,7 +40,7 @@
         <el-button class="exam-add-question" :icon="Plus" type="text" @click="addQuestion()">
           添加题目
         </el-button>
-        <el-table height="136px" :data="formExam.examQuestionList" class="question-select-list">
+        <el-table height="400px" :data="formExam.examQuestionList" class="question-select-list">
           <el-table-column prop="questionId" width="180px" label="题目id"/>
           <el-table-column prop="title" :show-overflow-tooltip="true" label="题目标题"/>
           <el-table-column prop="difficulty" width="80px" label="题目难度">
@@ -115,7 +115,6 @@
 
 
 <script setup>
-// TODO 新增题目有问题
 import {
   addExamService,
   addExamQuestionService,
@@ -175,7 +174,6 @@ const total = ref(0)
 
 async function getQuestionList() {
   const result = await getQuestionListService(params)
-  console.log(result)
   questionList.value = result.rows
   total.value = result.total
 }
@@ -200,7 +198,6 @@ function handleCurrentChange() {
   getQuestionList()
 }
 
-
 function onSearch() {
   params.pageNum = 1
   getQuestionList()
@@ -216,7 +213,7 @@ function onReset() {
 
 async function publishExam() {
   await publishExamService(formExam.examId)
-  router.push("/oj/layout/exam")
+  goBack();
 }
 
 const questionIdSet = ref([])
@@ -235,15 +232,15 @@ async function submitSelectQuestion() {
   }
   const examQ = reactive({
     examId: formExam.examId,
-    questionIdSet: questionIdSet.value
+    questionIds: questionIdSet.value
   })
-  console.log(examQ)
   await addExamQuestionService(examQ);
   searchExamById(formExam.examId)
   dialogVisible.value = false
   ElMessage.success('竞赛题目添加成功')
 }
 
+// 查询竞赛信息
 async function searchExam() {
   const examId = useRoute().query.examId
   if (examId) {
@@ -251,7 +248,6 @@ async function searchExam() {
     searchExamById(examId)
   }
 }
-
 searchExam()
 
 async function deleteExamQuestion(examId, questionId) {

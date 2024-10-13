@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @Data
 @TableName("exam")
 public class Exam extends BaseEntity {
-    @TableId(value = "ID", type = IdType.ASSIGN_ID)
-    private Long id;
+    @TableId(value = "examId", type = IdType.ASSIGN_ID)
+    private Long examId;
 
     private String title;
 

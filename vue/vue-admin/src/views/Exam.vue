@@ -14,7 +14,7 @@
     </el-form-item>
   </el-form>
   <!-- 表格 -->
-  <el-table height="526px" :data="examList">
+  <el-table height="650px" :data="examList">
     <el-table-column prop="title" label="标题"/>
     <el-table-column prop="startTime" width="180px" label="开始时间"/>
     <el-table-column prop="endTime" width="180px" label="结束时间"/>
@@ -42,16 +42,13 @@
     <el-table-column prop="createTime" width="180px" label="创建时间"/>
     <el-table-column label="操作" width="180px">
       <template #default="{ row }">
-        <el-button v-if="isNotStartExam(row) && row.status === 0" type="text" @click="onEdit(row.id)">编辑
+        <el-button v-if="isNotStartExam(row) && row.status === 0" type="text" @click="onEdit(row.examId)">编辑
         </el-button>
-        <el-button v-if="isNotStartExam(row) && row.status === 0" type="text" @click="onDelete(row.id)" class="red">
-          删除
+        <el-button v-if="isNotStartExam(row) && row.status === 0" type="text" @click="onDelete(row.examId)" class="red">删除
         </el-button>
-        <el-button v-if="row.status === 1 && isNotStartExam(row)" type="text"
-                   @click="cancelPublishExam(row.id)">撤销发布
+        <el-button v-if="row.status === 1 && isNotStartExam(row)" type="text" @click="cancelPublishExam(row.examId)">撤销发布
         </el-button>
-        <el-button v-if="row.status === 0 && isNotStartExam(row)" type="text"
-                   @click="publishExam(row.id)">发布
+        <el-button v-if="row.status === 0 && isNotStartExam(row)" type="text" @click="publishExam(row.examId)">发布
         </el-button>
         <el-button type="text" v-if="!isNotStartExam(row)">已开赛，不允许操作</el-button>
       </template>
@@ -129,23 +126,23 @@ function onAddExam() {
   router.push("/admin/exam/updateExam?type=add")
 }
 
-async function onEdit(id) {
-  router.push(`/admin/exam/updateExam?type=edit&id=${id}`)
+async function onEdit(examId) {
+  router.push(`/admin/exam/updateExam?type=edit&examId=${examId}`)
 }
 
-async function onDelete(id) {
-  await delExamService(id)
+async function onDelete(examId) {
+  await delExamService(examId)
   params.pageNum = 1
   getExamList()
 }
 
-async function publishExam(id) {
-  await publishExamService(id)
+async function publishExam(examId) {
+  await publishExamService(examId)
   getExamList()
 }
 
-async function cancelPublishExam(id) {
-  await cancelPublishExamService(id)
+async function cancelPublishExam(examId) {
+  await cancelPublishExamService(examId)
   getExamList()
 }
 

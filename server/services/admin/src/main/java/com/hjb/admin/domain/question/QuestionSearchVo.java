@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class QuestionSearchVo {
     @JsonSerialize(using = ToStringSerializer.class)
-    private Long id;
+    private Long questionId;
 
     private String title;
 

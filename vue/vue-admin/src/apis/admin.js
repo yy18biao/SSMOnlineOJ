@@ -2,7 +2,7 @@ import request from "@/utils/request";
 
 export function loginServeice(userId, password) {
     return request({
-        url: "/user/login",
+        url: "/admin/login",
         headers: {
             isToken: false,
         },
@@ -13,14 +13,14 @@ export function loginServeice(userId, password) {
 
 export function getAdminService() {
     return request({
-        url: "/user/getUser",
+        url: "/admin/getAdmin",
         method: "get",
     });
 }
 
 export function logoutService() {
     return request({
-        url: "/user/logout",
+        url: "/admin/logout",
         method: "delete",
     });
 }

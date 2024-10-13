@@ -25,7 +25,8 @@ public enum ResCode {
     EXAM_START_TIME_AFTER_END_TIME(3203, "竞赛的结束时间不能早于开始时间"),
     EXAM_STARTED(3204, "竞赛已开始"),
     EXAM_IS_PUBLISH(3205, "竞赛处于发布状态"),
-    EXAM_QUESTION_NOT_EXISTS(3206, "竞赛题目不存在");
+    EXAM_QUESTION_NOT_EXISTS(3206, "竞赛题目不存在"),
+    EXAM_NOT_HAS_QUESTION(3207, "竞赛中没有题目");
 
     private int code;
     private String msg;

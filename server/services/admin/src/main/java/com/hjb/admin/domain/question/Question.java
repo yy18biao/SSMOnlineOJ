@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 public class Question extends BaseEntity {
     @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+    private Long questionId;
 
     private String title;
 

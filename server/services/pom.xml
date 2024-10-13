@@ -13,7 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>admin</module>
-        <module>user</module>
+        <module>admin</module>
     </modules>
 
     <properties>

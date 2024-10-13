@@ -6,7 +6,7 @@
 <mapper namespace="com.hjb.admin.mapper.QuestionMapper">
 
     <select id="selectQuestionList" resultType="com.hjb.admin.domain.question.QuestionVo">
-        SELECT tq.id, tq.title, tq.difficulty, ta.nickname as createName, tq.createTime
+        SELECT tq.questionId, tq.title, tq.difficulty, ta.nickname as createName, tq.createTime
         FROM question tq left join admin ta on tq.createBy = ta.userId
         <where>
             <if test="difficulty !=null ">
