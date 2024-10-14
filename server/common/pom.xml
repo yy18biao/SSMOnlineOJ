@@ -17,6 +17,7 @@
         <module>common-swagger</module>
         <module>common-security</module>
         <module>common-redis</module>
+        <module>common-sms</module>
     </modules>
 
     <properties>

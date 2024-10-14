@@ -6,7 +6,7 @@
 <mapper namespace="com.hjb.admin.mapper.UserMapper">
 
     <select id="list" resultType="com.hjb.admin.domain.user.UserVo">
-        SELECT id, userId, nickname, sex, phone, email, wechat, schoolName, majorName, introduce, status FROM user
+        SELECT userId, nickname, sex, phone, email, wechat, schoolName, majorName, introduce, status FROM user
         <where>
             <if test="userId !=null ">
                 userId = #{userId}

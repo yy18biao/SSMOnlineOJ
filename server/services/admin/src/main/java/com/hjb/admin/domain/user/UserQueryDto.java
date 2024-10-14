@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 public class UserQueryDto extends PageQueryDto {
-    private String userId;
+    private Long userId;
     private String nickname;
 }

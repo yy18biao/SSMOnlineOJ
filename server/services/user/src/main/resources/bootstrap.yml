@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: user
+  profiles:
+    active: local
+  cloud:
+    nacos:
+      discovery:
+        namespace: 5626b519-3fa6-4912-9100-040726af3209
+        server-addr: http://127.0.0.1:8848
+      config:
+        namespace: 5626b519-3fa6-4912-9100-040726af3209
+        server-addr: http://127.0.0.1:8848
+        file-extension: yaml

@@ -26,7 +26,12 @@ public enum ResCode {
     EXAM_STARTED(3204, "竞赛已开始"),
     EXAM_IS_PUBLISH(3205, "竞赛处于发布状态"),
     EXAM_QUESTION_NOT_EXISTS(3206, "竞赛题目不存在"),
-    EXAM_NOT_HAS_QUESTION(3207, "竞赛中没有题目");
+    EXAM_NOT_HAS_QUESTION(3207, "竞赛中没有题目"),
+
+    FAILED_PHONE(3300, "手机号码格式错误"),
+    PHONE_EXISTS(3301, "手机号已被注册"),
+    PASSWORD_NO_PASSWORD(3302, "两次密码不一致"),
+    FAILED_CODE(3303, "验证码错误");
 
     private int code;
     private String msg;

@@ -13,10 +13,9 @@ import lombok.EqualsAndHashCode;
 @Data
 @TableName("user")
 public class User extends BaseEntity {
-    @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
-
-    private String userId;
+    @JsonSerialize(using = ToStringSerializer.class)
+    @TableId(value = "USERID", type = IdType.ASSIGN_ID)
+    private Long userId;
 
     private String password;
 

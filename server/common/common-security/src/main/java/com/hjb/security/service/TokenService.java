@@ -22,7 +22,7 @@ public class TokenService {
     private RedisService redisService;
 
     // 登录成功创建token
-    public String createToken(String userId, String secret, Integer identity, String nickname) {
+    public String createToken(String userId, String secret, Integer identity, String nickname, String photo) {
         // 生成token
         Map<String, Object> claims = new HashMap<>();
         String userKey = UUID.fastUUID().toString();
@@ -35,6 +35,7 @@ public class TokenService {
         LoginUserData loginUserData = new LoginUserData();
         loginUserData.setIdentity(identity);
         loginUserData.setNickname(nickname);
+        loginUserData.setPhoto(photo);
         redisService.set(key, loginUserData, RedisConstants.EXP, TimeUnit.MINUTES);
 
         return token;
